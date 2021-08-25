@@ -1,0 +1,48 @@
+"""
+To build the large processing system I have used apache spark(pyspark) in python.In spark
+we need to create a spark context for the job scheduling,Memory managment, Job Monitoring
+so we need to give customize parameter to acheive the parallel processing and distribusted fashion
+"""
+
+Here it is, spark-submit command to run this python script:
+
+
+spark-submit --master local[1] --num-executors 15 --executor-memory 2G --driver-memory 20G --driver-cores 10 --driver-class-path C:\Users\amitk\Desktop\postman\ojdbc6.jar C:\Users\amitk\Desktop\postman\Driverfunction.py
+
+
+
+Where:
+
+--master could be either prebuild cluster resource managment such as YARN etc., local machine
+or can use GCP services like Kubernetes
+
+--num-executors Total no of executor we are going to request with --master for fast data processing
+
+--executor-memory  size of each executor that we have requested from --master
+
+--driver-memory Amount of memory to use for the driver process, i.e. where SparkContext is initialized
+
+--driver-cores Number of cores to use for the driver process
+
+--driver-class-path to create a JDBC connection for DB operations
+
+at last driverfunction path 
+
+
+Steps to run:
+"
+Before running this script on your system you must have completed
+apache spark configuration and path setting."
+
+1.open anaconda cmd and run the above command with same parameters or you can change based upon need
+
+2. After successful execution the csv file or any large data file import into Database
+
+3. Next open DB and verify and do db operations
+
+
+P.S: The command properties to create a spark context can be given with spark configuration properties file
+     and there is way to calculate to memory size ,number of executors and cores so 
+     no need of random combinations
+     
+     ** Spark WEB UI : http://localhost:4040 to see the job scheduling and memory managment,task Monitoring
